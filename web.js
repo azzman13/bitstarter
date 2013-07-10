@@ -5,10 +5,15 @@ var app = express.createServer(express.logger());
 app.get('/', function(request, response) {
 //  response.send('Hello World2!');
   var fs = require('fs');
-  response.send(fs.readFile('index.html', function (err, data) {
+  var buf = new Buffer(8);
+
+  buf=fs.readFile('index.html', function (err, data) {
     if (err) throw err;
     console.log(data);
-  }).toString());
+  })
+
+  response.send(buf.toString('utf-8'));
+
 });
 
 var port = process.env.PORT || 5000;
