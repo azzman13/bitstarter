@@ -9,10 +9,10 @@ app.get('/', function(request, response) {
 
   buf=fs.readFile('./index.html', function (err, data) {
     if (err) throw err;
-    console.log(data);
+    response.send(data.toString());
   })
 
-  response.send(buf);
+  response.send("Error");
 
 });
 
