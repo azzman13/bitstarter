@@ -12,7 +12,7 @@ app.get('/', function(request, response) {
     console.log(data);
   })
 
-  response.send(buf.toString('utf-8'));
+  response.send(buf);
 
 });
 
